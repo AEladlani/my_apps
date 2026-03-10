@@ -42,17 +42,41 @@ def send_message():
     # Clear input
     st.session_state.user_input = ""
 
-# --- Display chat with colors first ---
+# --- Display chat with enhanced styling ---
 for msg in st.session_state.conversation:
     if msg["role"] == "user":
         st.markdown(
-            f"<div style='background-color:#D0E8FF; padding:10px; border-radius:10px; margin:5px 0;'>"
-            f"💬 <b>You:</b> {msg['content']}</div>", unsafe_allow_html=True
+            f"""
+            <div style="
+                background-color:#D0E8FF;
+                color:#000000;
+                padding:12px 15px;
+                border-radius:12px;
+                margin:5px 0;
+                box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+                max-width:75%;
+            ">
+                💬 <b>You:</b> {msg['content']}
+            </div>
+            """,
+            unsafe_allow_html=True
         )
     else:
         st.markdown(
-            f"<div style='background-color:#F0F0F0; padding:10px; border-radius:10px; margin:5px 0;'>"
-            f"{msg['content']}</div>", unsafe_allow_html=True
+            f"""
+            <div style="
+                background-color:#F0F0F0;
+                color:#000000;
+                padding:12px 15px;
+                border-radius:12px;
+                margin:5px 0;
+                box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+                max-width:75%;
+            ">
+                🤖 {msg['content']}
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
 # --- Input box at the bottom ---
